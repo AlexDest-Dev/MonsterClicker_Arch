@@ -1,9 +1,10 @@
 using System;
+using Data;
+using GameLogic;
 using Infrastructure.Factories;
 using Infrastructure.Services;
-using UnityEngine;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class BootstrapState : IState
     {
@@ -15,13 +16,14 @@ namespace Infrastructure
         }
         public void Enter()
         {
-            IMonoServiceFactory monoServiceFactory = new MonoServiceFactory();
-            IInputService inputService = new InputService(monoServiceFactory);
+            ServiceContainer.RegisterSingle(new MonoServiceFactory());
+            ServiceContainer.RegisterSingle(new InputService(ServiceContainer.Single<IMonoServiceFactory>()));
+            HitProcessor hitProcessor = new HitProcessor(ServiceContainer.Single<IInputService>(), new PlayerStats());
         }
 
         public void Exit()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

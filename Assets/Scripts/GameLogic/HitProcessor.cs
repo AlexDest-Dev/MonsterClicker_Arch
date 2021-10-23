@@ -7,10 +7,10 @@ namespace GameLogic
 {
     public class HitProcessor
     {
-        private readonly InputService _inputService;
+        private readonly IInputService _inputService;
         private readonly PlayerStats _playerStats;
 
-        public HitProcessor(InputService inputService, PlayerStats stats)
+        public HitProcessor(IInputService inputService, PlayerStats stats)
         {
             _inputService = inputService;
             _inputService.InputHappened += ProcessHit;
