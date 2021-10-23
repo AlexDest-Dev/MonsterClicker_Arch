@@ -1,4 +1,7 @@
 using System;
+using Infrastructure.Factories;
+using Infrastructure.Services;
+using UnityEngine;
 
 namespace Infrastructure
 {
@@ -12,7 +15,8 @@ namespace Infrastructure
         }
         public void Enter()
         {
-            
+            IMonoServiceFactory monoServiceFactory = new MonoServiceFactory();
+            IInputService inputService = new InputService(monoServiceFactory);
         }
 
         public void Exit()

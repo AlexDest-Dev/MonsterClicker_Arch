@@ -1,8 +1,9 @@
 ﻿using Infrastructure.MonoServices;
+using Infrastructure.Services;
 
 namespace Infrastructure.Factories
 {
-    public interface IMonoServiceFactory
+    public interface IMonoServiceFactory : IService
     {
         IInputHandler CreateInputHandler();
     }

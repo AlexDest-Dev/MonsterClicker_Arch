@@ -5,12 +5,24 @@ namespace Infrastructure.Factories
 {
     public class MonoServiceFactory : IMonoServiceFactory
     {
-        private const string InputHandler = "MonoServices/MouseInputHandler";
+        private const string MouseInputHandler = "MonoServices/MouseInputHandler";
+        private const string MobileInputHandler = "MonoServices/MobileInputHandler";
 
         public IInputHandler CreateInputHandler()
         {
-            InputHandler handler = Resources.Load<InputHandler>(InputHandler);
+            string currentHandler = ChooseHandler();
+            InputHandler handler = Resources.Load<InputHandler>(currentHandler);
             return GameObject.Instantiate(handler);
+        }
+
+        private string ChooseHandler()
+        {
+            string currentHandler;
+            if (Application.isEditor)
+                currentHandler = MouseInputHandler;
+            else
+                currentHandler = MobileInputHandler;
+            return currentHandler;
         }
     }
 }
