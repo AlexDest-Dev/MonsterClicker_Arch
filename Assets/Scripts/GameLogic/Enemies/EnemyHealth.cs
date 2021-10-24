@@ -11,7 +11,7 @@ namespace GameLogic.Enemies
         private int _currentHealth;
         private int _maxHealth;
 
-        public void Construct(int maxHealth)
+        public void Init(int maxHealth)
         {
             _maxHealth = maxHealth;
             _currentHealth = maxHealth;
