@@ -6,13 +6,13 @@ namespace Infrastructure.Services
 
         public static ServiceContainer Container => _instance ??= new ServiceContainer();
 
-        public static void RegisterSingle<TService>(TService implementation) where TService : IService =>
+        public void RegisterSingle<TService>(TService implementation) where TService : IService =>
             Implementation<TService>.Instance = implementation;
 
-        public static TService Single<TService>() where TService : IService =>
+        public TService Single<TService>() where TService : IService =>
             Implementation<TService>.Instance;
 
-        private class Implementation<TService>
+        private class Implementation<TService> where TService : IService
         {
             public static TService Instance;
         }

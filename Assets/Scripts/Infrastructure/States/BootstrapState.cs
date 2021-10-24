@@ -9,16 +9,33 @@ namespace Infrastructure.States
     public class BootstrapState : IState
     {
         private readonly GameStateMachine _stateMachine;
+        private readonly ServiceContainer _services;
+        private PlayerStats _playerStats;
 
-        public BootstrapState(GameStateMachine stateMachine)
+        public BootstrapState(GameStateMachine stateMachine, ServiceContainer services)
         {
             _stateMachine = stateMachine;
+            _services = services;
         }
         public void Enter()
         {
-            ServiceContainer.RegisterSingle(new MonoServiceFactory());
-            ServiceContainer.RegisterSingle(new InputService(ServiceContainer.Single<IMonoServiceFactory>()));
-            HitProcessor hitProcessor = new HitProcessor(ServiceContainer.Single<IInputService>(), new PlayerStats());
+            InitilizePlayerStats();
+            RegisterServices();
+        }
+
+        private void RegisterServices()
+        {
+            _services.RegisterSingle<IMonoServiceFactory>(new MonoServiceFactory());
+            _services.RegisterSingle<IInputService>(new InputService(_services.Single<IMonoServiceFactory>()));
+        }
+
+        private void InitilizePlayerStats()
+        {
+            _playerStats = new PlayerStats
+            {
+                Damage = 10,
+                EnemyMaxCount = 10
+            };
         }
 
         public void Exit()

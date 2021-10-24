@@ -1,4 +1,5 @@
 ﻿using Infrastructure.MonoServices;
+using Infrastructure.MonoServices.InputHandlers;
 using UnityEngine;
 
 namespace Infrastructure.Factories
@@ -11,7 +12,7 @@ namespace Infrastructure.Factories
         public IInputHandler CreateInputHandler()
         {
             string currentHandler = ChooseHandler();
-            InputHandler handler = Resources.Load<InputHandler>(currentHandler);
+            InputHandlerBase handler = Resources.Load<InputHandlerBase>(currentHandler);
             return GameObject.Instantiate(handler);
         }
 

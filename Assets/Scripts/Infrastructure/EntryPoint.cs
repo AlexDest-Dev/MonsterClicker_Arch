@@ -1,3 +1,5 @@
+using Infrastructure.Services;
+
 namespace Infrastructure
 {
     public class EntryPoint
@@ -6,7 +8,7 @@ namespace Infrastructure
 
         public EntryPoint()
         {
-            GameStateMachine = new GameStateMachine();
+            GameStateMachine = new GameStateMachine(ServiceContainer.Container);
         }
     }
 }

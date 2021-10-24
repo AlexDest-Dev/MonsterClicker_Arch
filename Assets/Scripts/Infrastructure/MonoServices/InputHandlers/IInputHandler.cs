@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Infrastructure.MonoServices
+namespace Infrastructure.MonoServices.InputHandlers
 {
     public interface IInputHandler
     {

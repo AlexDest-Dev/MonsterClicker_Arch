@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Infrastructure.Services;
 using Infrastructure.States;
 
 namespace Infrastructure
@@ -8,11 +9,11 @@ namespace Infrastructure
     {
         private IExitableState _currentState;
         private Dictionary<Type, IExitableState> _states;
-        public GameStateMachine()
+        public GameStateMachine(ServiceContainer services)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this),
+                [typeof(BootstrapState)] = new BootstrapState(this, services),
             };
         }
 
@@ -30,7 +31,7 @@ namespace Infrastructure
 
         private TState ChangeState<TState>() where TState : class, IExitableState
         {
-            _currentState.Exit();
+            _currentState?.Exit();
             TState newState = GetState<TState>();
             _currentState = newState;
             return newState;

@@ -1,6 +1,7 @@
 ﻿using System;
 using Infrastructure.Factories;
 using Infrastructure.MonoServices;
+using Infrastructure.MonoServices.InputHandlers;
 using UnityEngine;
 
 namespace Infrastructure.Services
@@ -19,6 +20,7 @@ namespace Infrastructure.Services
 
         private void OnInputHandled(Touch touch)
         {
+            Debug.Log("Input handled");
             Ray ray = _camera.ScreenPointToRay(touch.position);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {

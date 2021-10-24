@@ -1,12 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Infrastructure.MonoServices
+namespace Infrastructure.MonoServices.InputHandlers
 {
-    public class InputHandler : MonoBehaviour, IInputHandler
+    public class MobileInputHandler : InputHandlerBase
     {
-        public Action<Touch> InputHandled { get; set; }
-
         public void Update()
         {
             CheckInput();
