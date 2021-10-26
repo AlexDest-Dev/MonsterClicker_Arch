@@ -1,6 +1,7 @@
 ﻿using Data;
 using GameLogic.Enemies;
 using Infrastructure.Services;
+using Infrastructure.Services.InputService;
 using UnityEngine;
 
 namespace GameLogic

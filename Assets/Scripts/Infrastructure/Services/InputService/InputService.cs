@@ -1,10 +1,9 @@
 ﻿using System;
 using Infrastructure.Factories;
-using Infrastructure.MonoServices;
 using Infrastructure.MonoServices.InputHandlers;
 using UnityEngine;
 
-namespace Infrastructure.Services
+namespace Infrastructure.Services.InputService
 {
     public class InputService : IInputService
     {

@@ -1,5 +1,6 @@
 ﻿using GameLogic.Enemies;
 using Infrastructure.Services;
+using Infrastructure.Services.AssetProvider;
 using UnityEngine;
 using Utils.ObjectPool;
 

@@ -2,6 +2,7 @@ using Data;
 using GameLogic;
 using Infrastructure.Factories;
 using Infrastructure.Services;
+using Infrastructure.Services.InputService;
 
 namespace Infrastructure.States
 {

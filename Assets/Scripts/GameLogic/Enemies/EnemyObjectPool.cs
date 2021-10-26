@@ -15,7 +15,9 @@ namespace GameLogic.Enemies
 
         protected override Enemy AddObject()
         {
-            return _factory.CreateEnemy();
+            Enemy newEnemy = _factory.CreateEnemy();
+            newEnemy.Deactivate();
+            return newEnemy;
         }
     }
 }
