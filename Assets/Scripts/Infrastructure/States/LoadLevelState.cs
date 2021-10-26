@@ -4,13 +4,15 @@ namespace Infrastructure.States
 {
     public class LoadLevelState : IState
     {
-        public LoadLevelState()
+        private readonly GameStateMachine _stateMachine;
+
+        public LoadLevelState(GameStateMachine stateMachine)
         {
-            
+            _stateMachine = stateMachine;
         }
         public void Enter()
         {
-            
+            _stateMachine.Enter<GameLoopState>();
         }
 
         public void Exit()

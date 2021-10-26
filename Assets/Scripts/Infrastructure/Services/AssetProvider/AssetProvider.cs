@@ -11,12 +11,14 @@ namespace Infrastructure.Services.AssetProvider
 
         public TMono Instantiate<TMono>(string path) where TMono : Object
         {
-            throw new System.NotImplementedException();
+            TMono prefab = LoadPrefab<TMono>(path);
+            return Object.Instantiate(prefab);
         }
 
         public TMono Instantiate<TMono>(string path, Vector3 position) where TMono : Object
         {
-            throw new System.NotImplementedException();
+            TMono prefab = LoadPrefab<TMono>(path);
+            return Object.Instantiate(prefab, position, Quaternion.identity);
         }
     }
 }

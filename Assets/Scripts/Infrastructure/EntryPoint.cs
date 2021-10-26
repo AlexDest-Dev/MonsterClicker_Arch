@@ -6,9 +6,9 @@ namespace Infrastructure
     {
         public readonly GameStateMachine GameStateMachine;
 
-        public EntryPoint()
+        public EntryPoint(ICoroutineRunner runner)
         {
-            GameStateMachine = new GameStateMachine(ServiceContainer.Container);
+            GameStateMachine = new GameStateMachine(ServiceContainer.Container, runner);
         }
     }
 }

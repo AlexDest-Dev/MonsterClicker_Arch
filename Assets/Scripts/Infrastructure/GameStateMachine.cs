@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Infrastructure.Factories;
 using Infrastructure.Services;
 using Infrastructure.States;
 
@@ -9,11 +10,13 @@ namespace Infrastructure
     {
         private IExitableState _currentState;
         private Dictionary<Type, IExitableState> _states;
-        public GameStateMachine(ServiceContainer services)
+        public GameStateMachine(ServiceContainer services, ICoroutineRunner runner)
         {
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, services),
+                [typeof(LoadLevelState)] = new LoadLevelState(this),
+                [typeof(GameLoopState)] = new GameLoopState(services, runner)
             };
         }
 

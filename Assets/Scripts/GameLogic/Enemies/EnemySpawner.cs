@@ -23,6 +23,11 @@ namespace GameLogic.Enemies
             _pool = new EnemyObjectPool(factory);
             _positionRandomizer = randomService;
             _spawnerRunner = coroutineRunner;
+            _bounds = new Vector3Bounds2D
+            {
+                LeftDownBound = new Vector3(-10, 0, -10),
+                RightUpBound = new Vector3(10, 0, 10)
+            };
         }
 
         public void StartSpawn(float spawnRate)
