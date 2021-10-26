@@ -7,18 +7,16 @@ namespace GameLogic.Enemies
     public class Spawner
     {
         private const int DefaultEnemyInitialization = 10;
-        private readonly IEnemyFactory _enemyFactory;
-        private readonly ObjectPool<Enemy> _pool;
+        private readonly BaseObjectPool<Enemy> _pool;
 
-        public Spawner(IEnemyFactory factory, IAssetProvider assetProvider)
+        public Spawner(IEnemyFactory factory)
         {
-            _enemyFactory = factory;
-            _pool = new ObjectPool<Enemy>(assetProvider.LoadPrefab<Enemy>(AssetPaths.EnemyPath));
+            _pool = new EnemyObjectPool(factory);
         }
 
         private void Spawn()
         {
-            
+            Enemy newEnemy = _pool.TakeObject();
         }
     }
 }

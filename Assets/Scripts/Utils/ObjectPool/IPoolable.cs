@@ -1,6 +1,6 @@
 ﻿namespace Utils.ObjectPool
 {
-    public interface IPoolable<T> : IClonable<T>
+    public interface IPoolable
     {
         public void Activate();
         public void Deactivate();

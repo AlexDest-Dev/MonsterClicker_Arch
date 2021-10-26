@@ -4,7 +4,7 @@ using Utils.ObjectPool;
 namespace GameLogic.Enemies
 {
     [RequireComponent(typeof(EnemyHealth))]
-    public class Enemy : MonoBehaviour, IPoolable<Enemy>
+    public class Enemy : MonoBehaviour, IPoolable
     {
         public void Activate()
         {
@@ -19,11 +19,6 @@ namespace GameLogic.Enemies
         public bool IsActive()
         {
             return gameObject.activeInHierarchy;
-        }
-
-        public Enemy Clone()
-        {
-            return Instantiate(this);
         }
     }
 }
