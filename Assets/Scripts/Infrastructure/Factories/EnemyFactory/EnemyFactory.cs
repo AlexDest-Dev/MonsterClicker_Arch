@@ -1,10 +1,7 @@
 ﻿using GameLogic.Enemies;
-using Infrastructure.Services;
 using Infrastructure.Services.AssetProvider;
-using UnityEngine;
-using Utils.ObjectPool;
 
-namespace Infrastructure.Factories
+namespace Infrastructure.Factories.EnemyFactory
 {
     public class EnemyFactory : IEnemyFactory
     {

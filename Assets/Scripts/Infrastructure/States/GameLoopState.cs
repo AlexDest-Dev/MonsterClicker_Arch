@@ -2,8 +2,10 @@
 using GameLogic;
 using GameLogic.Enemies;
 using Infrastructure.Factories;
+using Infrastructure.Factories.EnemyFactory;
 using Infrastructure.Services;
 using Infrastructure.Services.InputService;
+using Infrastructure.Services.RandomService;
 
 namespace Infrastructure.States
 {

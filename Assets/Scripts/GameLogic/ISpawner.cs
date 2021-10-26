@@ -1,4 +1,4 @@
-﻿namespace GameLogic.Enemies
+﻿namespace GameLogic
 {
     public interface ISpawner
     {

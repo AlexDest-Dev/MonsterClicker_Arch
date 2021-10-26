@@ -1,8 +1,7 @@
 ﻿using GameLogic.Enemies;
 using Infrastructure.Services;
-using Utils.ObjectPool;
 
-namespace Infrastructure.Factories
+namespace Infrastructure.Factories.EnemyFactory
 {
     public interface IEnemyFactory : IService
     {

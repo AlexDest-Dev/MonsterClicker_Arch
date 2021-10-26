@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Utils;
 
-namespace Infrastructure.Services
+namespace Infrastructure.Services.RandomService
 {
     public interface IRandomService : IService
     {
